@@ -1,0 +1,28 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% block content %}
+<h1>Pagina de Contacto</h1>
+<a href="../">Volver a index</a>
+<form action="" method="">
+Nombre: <input type="text">
+</form>
+
+<ul> 
+{% for val in site.data.ejemplo.paises.pais %}
+  {% if val.poblacion > 60000000%}
+	<li style="background-color: green">
+  {%else%}
+  <li>
+  {%endif%}
+  {{ val.nombre }} - {{ val.poblacion }}
+  <img src="../images/{{ val.bandera }}">
+  </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
